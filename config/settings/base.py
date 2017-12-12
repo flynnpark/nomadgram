@@ -273,3 +273,7 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+# Maybe try this and see if it works?
+
+ALLOWED_HOSTS = ["*"]
