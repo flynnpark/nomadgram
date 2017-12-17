@@ -8,6 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 @python_2_unicode_compatible
 class User(AbstractUser):
 
+    """ User Model """
+
     GENDER_CHOICE = (
         ('male', 'Male'),
         ('femail', 'Female'),
