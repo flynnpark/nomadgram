@@ -2,7 +2,7 @@ from rest_framework import serializers
 from . import models
 from nomadgram.users import models as user_models
 
-class UserProfileImageSerializer(serializers.ModelSerializer):
+class CountImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Image
