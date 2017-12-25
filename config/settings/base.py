@@ -49,6 +49,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     'rest_framework', # REST Framework
+    'taggit', # Tags for the photos
 ]
 
 # Apps specific for this project go here.
@@ -278,3 +279,5 @@ ADMIN_URL = r'^admin/'
 # Maybe try this and see if it works?
 
 ALLOWED_HOSTS = ["*"]
+
+TAGGIT_CASE_INSENSITIVE = True
