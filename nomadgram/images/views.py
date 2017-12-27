@@ -2,6 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from . import models, serializers
+from nomadgram.users import models as user_models
+from nomadgram.users import serializers as user_serializers
 from nomadgram.notifications import views as notification_views
 
 class Feed(APIView):
@@ -32,6 +34,16 @@ class Feed(APIView):
 
 
 class LikeImage(APIView):
+
+    def get(self, request, image_id, format=None):
+
+        likes = models.Like.objects.filter(image__id=image_id)
+        like_creator_ids = likes.values('creator_id')
+        users = user_models.User.objects.filter(id__in=like_creator_ids)
+
+        serializer = user_serializers.ListUserSerializer(users, many=True)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, image_id, format=None):
 
