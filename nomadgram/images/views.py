@@ -161,3 +161,20 @@ class ModerateComment(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class ImageDetail(APIView):
+
+    def get(self, request, image_id, format=None):
+
+        user = request.user
+
+        try:
+            image = models.Image.objects.get(id=image_id)
+
+        except models.Image.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = serializers.ImageSerializer(image)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
