@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^(?P<username>\w+)/following/$', views.UserFollowing.as_view(), name='user_following'),
     url(r'^search/$', views.Search.as_view(), name='search'),
     url(r'^(?P<username>\w+)/$', views.UserProfile.as_view(), name='user_profile'),
+    url(r'^(?P<username>\w+)/password/$', views.ChangePassword.as_view(), name='change'),
 ]
