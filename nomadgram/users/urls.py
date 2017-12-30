@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^search/$', views.Search.as_view(), name='search'),
     url(r'^(?P<username>\w+)/$', views.UserProfile.as_view(), name='user_profile'),
     url(r'^(?P<username>\w+)/password/$', views.ChangePassword.as_view(), name='change'),
+    url(r'^login/facebook/$', views.FacebookLogin.as_view(), name='fb_login'),
 ]
