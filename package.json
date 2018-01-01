@@ -2,6 +2,8 @@
   "dependencies": {
     "add": "^2.0.6",
     "create-react-app": "^1.4.3",
-    "global": "^4.3.2"
+    "global": "^4.3.2",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
   }
 }
