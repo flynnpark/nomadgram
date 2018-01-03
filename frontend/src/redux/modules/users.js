@@ -19,7 +19,7 @@ function reducer(state = initialState, action) {
     }
 };
 
-// recuder functions
+// reducer functions
 
 // exports
 
