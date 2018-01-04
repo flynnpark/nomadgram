@@ -64,6 +64,7 @@
   "devDependencies": {
     "reactotron-react-js": "^1.13.0",
     "reactotron-redux": "^1.13.0",
+    "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6"
   }
 }
