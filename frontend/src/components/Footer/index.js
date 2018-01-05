@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.scss";
 
 const Footer = (props, context) => (
-    <footer styles={styles.footer}>
+    <footer className={styles.footer}>
         <div className={styles.column}>
             <nav className={styles.nav}>
                 <ul className={styles.list}>

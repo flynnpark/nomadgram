@@ -1,14 +1,27 @@
 .footer {
+    max-width: $max-page-width;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+
     .column {
         .nav {
             .list {
-                .list-item {
+                display: flex;
 
+                .list-item {
+                    margin-right: 15px;
+                    color: $dark-blue;
                 }
             }
         }
         .copyright {
-
+            color: $dark-grey;
         }
     }
 }
