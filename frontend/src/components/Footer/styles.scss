@@ -14,7 +14,6 @@
     }
 
     .column {
-        margin-bottom: 15px;
         @include breakpoint(mobileonly) {
             margin-bottom: 0;
         }
