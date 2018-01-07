@@ -49,6 +49,15 @@
         padding: 15px;
         @include boxBorder(no);
 
+        .logo {
+            margin: 0 auto;
+            background-image: url("images/bundle.png");
+            background-size: 429px 398px;
+            background-position: 0 0;
+            width: 175px;
+            height: 51px;
+        }
+
         .change-link {
             color: $light-blue;
             cursor: pointer;
