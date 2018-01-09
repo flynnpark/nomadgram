@@ -10,7 +10,7 @@ export const LoginForm = (props, context) => (
             <input type="password" placeholder={context.t("Password")} className={styles.textInput} />
             <input type="submit" value={context.t("Log in")} className={styles.button} />
         </form>
-        <span className={styles.divider}>or</span>
+        <span className={styles.divider}>{context.t("or")}</span>
         <span className={styles.facebookLink}>
             {" "}
             <Ionicon icon="logo-facebook" fontSize="20px" color="#385185" />
@@ -27,7 +27,7 @@ export const SignupForm = (props, context) => (
             <Ionicon icon="logo-facebook" fontSize="20px" color="#FFFFFF" />
             {context.t("Log in with Facebook")}
         </button>
-        <span className={styles.divider}>or</span>
+        <span className={styles.divider}>{context.t("or")}</span>
         <form className={styles.form}>
             <input type="email" placeholder={context.t("Email")} className={styles.textInput} />
             <input type="text" placeholder={context.t("Full Name")} className={styles.textInput} />
