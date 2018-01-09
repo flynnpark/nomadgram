@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Language: kr"
+
+#: src/components/Auth/presenter.js
+msgid "Don't have an account?"
+msgstr "계정이 없으신가요?"
+
+#: src/components/Auth/presenter.js
+#: src/components/AuthForms/index.js
+msgid "Sign up"
+msgstr "회원가입"
+
+#: src/components/Auth/presenter.js
+msgid "Have an account?"
+msgstr "계정이 있으신가요?"
+
+#: src/components/Auth/presenter.js
+#: src/components/AuthForms/index.js
+msgid "Log in"
+msgstr "로그인"
+
+#: src/components/Auth/presenter.js
+msgid "Get the app"
+msgstr "앱을 사용해보세요"
+
+#: src/components/AuthForms/index.js
+msgid "Username"
+msgstr "계정명"
+
+#: src/components/AuthForms/index.js
+msgid "Password"
+msgstr "비밀번호"
+
+#: src/components/AuthForms/index.js
+msgid "or"
+msgstr ""
+
+#: src/components/AuthForms/index.js
+msgid "Log in with Facebook"
+msgstr ""
+
+#: src/components/AuthForms/index.js
+msgid "Forgot password?"
+msgstr ""
+
+#: src/components/AuthForms/index.js
+msgid "Sign up to see photos and videos from your friends."
+msgstr ""
+
+#: src/components/AuthForms/index.js
+msgid "Email"
+msgstr ""
+
+#: src/components/AuthForms/index.js
+msgid "Full Name"
+msgstr ""
+
+#: src/components/AuthForms/index.js
+msgid "By signing up, you agree to our"
+msgstr ""
+
+#: src/components/AuthForms/index.js
+msgid "Terms & Privacy Policy"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "About Us"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "Support"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "Blog"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "Press"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "API"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "Jobs"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "Privacy"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "Terms"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "Directory"
+msgstr ""
+
+#: src/components/Footer/index.js
+msgid "Language"
+msgstr ""
