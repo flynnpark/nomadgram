@@ -7,7 +7,7 @@ const Auth = (props, context) => (
         <div className={styles.column}>
         </div>
         <div className={styles.column}>
-            <div className={`${styles.whiteBox} &{styles.formBox}`}>
+            <div className={`${styles.whiteBox} ${styles.formBox}`}>
                 <div className={styles.logo}></div>
                 {props.action === "login" && <LoginForm />}
                 {props.action === "signup" && <SignupForm />}
