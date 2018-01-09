@@ -5,7 +5,7 @@ import formStyles from "shared/formStyles.scss";
 
 export const SignupForm = (props, context) => (
     <div className={formStyles.formComponent}>
-        <h3>{context.t("Sign up to see photos and videos from your friends.")}</h3>
+        <h3 className={formStyles.signupHeader}>{context.t("Sign up to see photos and videos from your friends.")}</h3>
         <button className={formStyles.button}>
             <Ionicon icon="logo-facebook" fontSize="20px" color="#FFFFFF" />
             {context.t("Log in with Facebook")}
@@ -18,7 +18,7 @@ export const SignupForm = (props, context) => (
             <input type="password" placeholder={context.t("Password")} className={formStyles.textInput} />
             <input type="submit" value={context.t("Sign up")} className={formStyles.button} />
         </form>
-        <p>
+        <p className={formStyles.terms}>
             {context.t("By signing up, you agree to our")} <span>{context.t("Terms & Privacy Policy")}</span>.
         </p>
     </div>

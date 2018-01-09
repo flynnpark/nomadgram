@@ -83,4 +83,24 @@
         font-size: $small-font-size;
         color: $dark-blue
     }
+
+    .signup-header {
+        font-size: 17px;
+        color: $dark-grey;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .terms {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 20px;
+        line-height: 20px;
+        color: $dark-grey;
+
+        span {
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
 }
