@@ -21,7 +21,7 @@ class Container extends Component {
         this.setState({
             [name]: value
         });
-    };
+    }
 
     _handleSubmit = event => {
         event.preventDefault();

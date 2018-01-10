@@ -24,6 +24,15 @@ export const SignupForm = (props, context) => (
     </div>
 );
 
+SignupForm.propTypes = {
+    emailValue: PropTypes.string.isRequired,
+    fullnameValue: PropTypes.string.isRequired,
+    usernameValue: PropTypes.string.isRequired,
+    passwordValue: PropTypes.string.isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
+}
+
 SignupForm.contextTypes = {
     t: PropTypes.func.isRequired
 }
