@@ -31,8 +31,9 @@
     .button {
         @include blueButton();
 
-        svg {
-            margin-right: 10px;
+        i {
+            font-size: 16px;
+            margin-right: 5px;
         }
     }
 

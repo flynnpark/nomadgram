@@ -14,6 +14,7 @@ class Container extends Component {
         return <SignupForm
             handleInputChange={this._handleInputChange}
             handleSubmit={this._handleSubmit}
+            handleFacebookLogin={this._handleFacebookLogin}
             emailValue={email}
             fullnameValue={fullname}
             usernameValue={username}
@@ -29,6 +30,10 @@ class Container extends Component {
 
     _handleSubmit = event => {
         event.preventDefault();
+    }
+
+    _handleFacebookLogin = response => {
+        console.log(response);
     }
 }
 export default Container;
