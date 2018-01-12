@@ -1,4 +1,12 @@
 import { connect } from "react-redux";
 import Container from "./container";
 
-export default connect()(Container);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        facebookLogin: (access_token) => {
+            dispatch(userActions.facebookLogin(access_token));
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Container);
