@@ -1,0 +1,67 @@
+.navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include boxBorder(no);
+
+    .inner {
+        max-width: $max-page-width;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 77px;
+        padding: 25px 0;
+
+        .column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 33%;
+
+            &:first-child {
+                justify-content: flex-start;
+            }
+
+            &:last-child {
+                justify-content: flex-end;
+            }
+
+            .logo {
+                width: 180px;
+                height: 34px;
+                background-image: url("images/bundle.png");
+                background-repeat: no-repeat;
+                background-position: 0px -139px;
+                background-size: 439px 407px;
+            }
+
+            .search-input {
+                width: 215px;
+                box-sizing: border-box;
+                padding: 5px;
+                border: solid 1px #dbdbdb;
+                border-radius: 3px;
+                background-color: #fafafa;
+                font-size: $normal-font-size;
+                font-weight: 300;
+
+                &::placeholder {
+                    color: $dark-grey;
+                }
+
+                &:focus {
+                    outline: none;
+                    background-color: white;
+                }
+            }
+
+            .nav-icon {
+                margin-left: 30px;
+                cursor: pointer;
+            }
+        }
+    }
+
+}
