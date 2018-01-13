@@ -16,11 +16,11 @@ export const SignupForm = (props, context) => (
             textButton={context.t("Log in with Facebook")}
         />
         <span className={formStyles.divider}>{context.t("or")}</span>
-        <form className={formStyles.form}>
-            <input type="email" placeholder={context.t("Email")} className={formStyles.textInput} />
-            <input type="text" placeholder={context.t("Full Name")} className={formStyles.textInput} />
-            <input type="username" placeholder={context.t("Username")} className={formStyles.textInput} />
-            <input type="password" placeholder={context.t("Password")} className={formStyles.textInput} />
+        <form className={formStyles.form} onSubmit={props.handleSubmit}>
+            <input type="email" placeholder={context.t("Email")} className={formStyles.textInput} name="email" />
+            <input type="text" placeholder={context.t("Full Name")} className={formStyles.textInput} name="name" />
+            <input type="username" placeholder={context.t("Username")} className={formStyles.textInput} name="username" />
+            <input type="password" placeholder={context.t("Password")} className={formStyles.textInput} name="password" />
             <input type="submit" value={context.t("Sign up")} className={formStyles.button} />
         </form>
         <p className={formStyles.terms}>
@@ -31,7 +31,7 @@ export const SignupForm = (props, context) => (
 
 SignupForm.propTypes = {
     emailValue: PropTypes.string.isRequired,
-    fullnameValue: PropTypes.string.isRequired,
+    nameValue: PropTypes.string.isRequired,
     usernameValue: PropTypes.string.isRequired,
     passwordValue: PropTypes.string.isRequired,
     handleInputChange: PropTypes.func.isRequired,

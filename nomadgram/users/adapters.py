@@ -17,7 +17,7 @@ class AccountAdapter(DefaultAccountAdapter):
             user.name = name
             user.email = email
             user.username = username
-            if(password1 == password2):
+            if (password1 == password2):
                 user.set_password(password1)
 
             user.save()
