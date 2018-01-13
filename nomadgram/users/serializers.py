@@ -23,7 +23,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'post_count',
             'followers_count',
             'following_count',
-            'images',
+            'images'
         )
 
 
@@ -35,7 +35,7 @@ class ListUserSerializer(serializers.ModelSerializer):
             'id',
             'profile_image',
             'username',
-            'name',
+            'name'
         )
 
 

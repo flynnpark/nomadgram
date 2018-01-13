@@ -17,10 +17,30 @@ export const SignupForm = (props, context) => (
         />
         <span className={formStyles.divider}>{context.t("or")}</span>
         <form className={formStyles.form} onSubmit={props.handleSubmit}>
-            <input type="email" placeholder={context.t("Email")} className={formStyles.textInput} name="email" />
-            <input type="text" placeholder={context.t("Full Name")} className={formStyles.textInput} name="name" />
-            <input type="username" placeholder={context.t("Username")} className={formStyles.textInput} name="username" />
-            <input type="password" placeholder={context.t("Password")} className={formStyles.textInput} name="password" />
+            <input
+                type="email"
+                placeholder={context.t("Email")}
+                className={formStyles.textInput}
+                onChange={props.handleInputChange}
+                name="email" />
+            <input
+                type="text"
+                placeholder={context.t("Full Name")}
+                className={formStyles.textInput}
+                onChange={props.handleInputChange}
+                name="name" />
+            <input
+                type="username"
+                placeholder={context.t("Username")}
+                className={formStyles.textInput}
+                onChange={props.handleInputChange}
+                name="username" />
+            <input
+                type="password"
+                placeholder={context.t("Password")}
+                className={formStyles.textInput}
+                onChange={props.handleInputChange}
+                name="password" />
             <input type="submit" value={context.t("Sign up")} className={formStyles.button} />
         </form>
         <p className={formStyles.terms}>

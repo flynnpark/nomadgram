@@ -2,7 +2,6 @@ from django.conf import settings
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 
-
 class AccountAdapter(DefaultAccountAdapter):
     def is_open_for_signup(self, request):
         return getattr(settings, 'ACCOUNT_ALLOW_REGISTRATION', True)
@@ -19,7 +18,6 @@ class AccountAdapter(DefaultAccountAdapter):
             user.username = username
             if (password1 == password2):
                 user.set_password(password1)
-
             user.save()
 
 class SocialAccountAdapter(DefaultSocialAccountAdapter):

@@ -10,4 +10,5 @@ class UsersConfig(AppConfig):
             Users system checks
             Users signal registration
         """
+
         from .signals import user_signed_up
