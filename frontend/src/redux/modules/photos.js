@@ -12,7 +12,7 @@ function setFeed(feed) {
     return {
         type: SET_FEED,
         feed
-    }
+    };
 }
 
 // api actions
@@ -33,7 +33,7 @@ function getFeed() {
             return response.json();
         })
         .then(json => dispatch(setFeed(json)));
-    }
+    };
 }
 
 // initial state
@@ -59,7 +59,7 @@ function applySetFeed(state, action) {
     return {
         ...state,
         feed
-    }
+    };
 }
 
 // exports

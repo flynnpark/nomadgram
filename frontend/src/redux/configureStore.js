@@ -26,6 +26,7 @@ const reducer = combineReducers({
 });
 
 let store;
+
 if (env === "development") {
     store = initialState =>
         createStore(
