@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import styles from "./styles.scss";
 
 const PhotoComments = props => (
-    <div>
-        <ul>
+    <div className={styles.comments}>
+        <ul className={styles.list}>
             <Comment username={props.creator} comment={props.caption} />
             {props.comments.map(comment => (
                 <Comment
