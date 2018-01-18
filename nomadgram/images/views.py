@@ -206,6 +206,7 @@ class ImageDetail(APIView):
 
         try:
             image = models.Image.objects.get(id=image_id)
+            print(image.file)
 
         except models.Image.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)

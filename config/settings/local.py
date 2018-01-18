@@ -55,7 +55,7 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TEMPLATE_CONTEXT': True,
 }
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.0.10', 'hestiraid.iptime.org', 'localhost']
+ALLOWED_HOSTS = ['192.168.0.10', '127.0.0.1', 'hestiraid.iptime.org', 'localhost']
 
 # django-extensions
 # ------------------------------------------------------------------------------
