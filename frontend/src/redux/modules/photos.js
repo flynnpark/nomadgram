@@ -8,6 +8,7 @@ const SET_FEED = "SET_FEED";
 const LIKE_PHOTO = "LIKE_PHOTO";
 const UNLIKE_PHOTO = "UNLIKE_PHOTO";
 const ADD_COMMENT = "ADD_COMMENT";
+const DELETE_COMMENT = "DELETE_COMMENT";
 
 // actionCreators
 
@@ -33,11 +34,19 @@ function doUnlikePhoto(photoId) {
 }
 
 function addComment(photoId, comment) {
-      return {
-          type: ADD_COMMENT,
-          photoId,
-          comment
-      };
+    return {
+      type: ADD_COMMENT,
+      photoId,
+      comment
+    };
+}
+
+function deleteComment(photoId, messageId) {
+    return {
+        type: DELETE_COMMENT,
+        photoId,
+        messageId
+    };
 }
 
 // api actions
@@ -118,7 +127,6 @@ function commentPhoto(photoId, message) {
             if (response.status === 401) {
                 dispatch(userActions.logout());
             }
-
             return response.json()
         })
         .then(json => {
@@ -166,9 +174,12 @@ function applyLikePhoto(state, action) {
     const { feed } = state;
     const updatedFeed = feed.map(photo => {
         if (photo.id === photoId) {
-            return {...photo, is_liked: true, like_count: photo.like_count + 1}
+            return {
+                ...photo,
+                is_liked: true,
+                like_count: photo.like_count + 1
+            };
         }
-
         return photo;
     });
 
@@ -182,13 +193,12 @@ function applyUnlikePhoto(state, action) {
         if (photo.id === photoId) {
             return {
                 ...photo,
-                comments: [...photo.comments, comment]
+                is_liked: false,
+                like_count: photo.like_count - 1
             };
         }
-
         return photo;
     });
-
     return { ...state, feed: updatedFeed };
 }
 
@@ -197,9 +207,11 @@ function applyAddComment(state, action) {
     const { feed } = state;
     const updatedFeed = feed.map(photo => {
         if (photo.id === photoId) {
-            return {...photo, is_liked: false, like_count: photo.like_count - 1}
+            return {
+                ...photo,
+                comments: [...photo.comments, comment]
+            };
         }
-
         return photo;
     });
 
