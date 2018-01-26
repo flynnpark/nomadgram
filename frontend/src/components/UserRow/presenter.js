@@ -5,15 +5,15 @@ import styles from "./styles.scss";
 const UserRow = (props, context) => (
     <div className={styles.container}>
         <div className={styles.column}>
-            <div className={props.big ? styles.bigAvatar : styles.avatar} />
+            <div className={props.big ? styles.bigAvatar : styles.avatar}  style={{backgroundImage: `url(${props.user.profile_image || require("images/noPhoto.jpg")})`}} />
             <div className={styles.user}>
                 <span className={styles.username}>{props.user.username}</span>
                 <span className={styles.name}>{props.user.name}</span>
             </div>
         </div>
-        <span className={styles.column}>
+        <div className={styles.column}>
             <button className={styles.button}>{context.t("Follow")}</button>
-        </span>
+        </div>
     </div>
 );
 
