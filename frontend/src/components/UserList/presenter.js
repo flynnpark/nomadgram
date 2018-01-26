@@ -21,7 +21,6 @@ const UserList = props => (
     </div>
 );
 
-
 const RenderUsers = props => props.list.map(user => <UserRow user={user} key={user.id} />);
 
 RenderUsers.propTypes = {
