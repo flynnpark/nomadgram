@@ -18,11 +18,22 @@ class Container extends Component {
         searchByTerm();
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        const { searchByTerm } = this.props;
+        if (prevProps.match.params !== this.props.match.params) {
+            searchByTerm();
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
+        const { searchByTerm, pathname } = this.props;
         if (nextProps.userList && nextProps.imageList) {
             this.setState({
                 loading: false
             });
+        }
+        if (nextProps.pathname !== pathname) {
+            searchByTerm();
         }
     }
 
