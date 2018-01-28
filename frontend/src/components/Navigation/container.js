@@ -16,7 +16,7 @@ class Container extends Component {
             onSubmit={this._onSubmit}
             onInputChange={this._onInputChange}
             value={this.state.term} />;
-    }
+    };
 
     _onInputChange = (event) => {
         const { target: { value } } = event;
