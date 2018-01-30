@@ -15,7 +15,8 @@ class Container extends Component {
         return <Navigation
             onSubmit={this._onSubmit}
             onInputChange={this._onInputChange}
-            value={this.state.term} />;
+            value={this.state.term}
+            username={this.props.username} />;
     };
 
     _onInputChange = (event) => {

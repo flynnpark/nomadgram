@@ -32,7 +32,7 @@ const Navigation = (props, context) => (
                     <IonIcon icon="ios-heart-outline" fontSize="28px" color="black" />
                 </div>
                 <div className={styles.navIcon}>
-                    <Link to="/explore">
+                    <Link to={{ pathname: `/${props.username}` }}>
                         <IonIcon icon="ios-person-outline" fontSize="28px" color="black" />
                     </Link>
                 </div>
@@ -48,7 +48,8 @@ Navigation.contextTypes = {
 Navigation.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onInputChange: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
 }
 
 export default Navigation;

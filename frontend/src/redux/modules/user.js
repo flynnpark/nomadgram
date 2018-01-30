@@ -8,13 +8,15 @@ const SET_USER_LIST = "SET_USER_LIST";
 const FOLLOW_USER = "FOLLOW_USER";
 const UNFOLLOW_USER = "UNFOLLOW_USER";
 const SET_IMAGE_LIST = "SET_IMAGE_LIST";
+const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 // action creators
 
-function saveToken(token) {
+function saveToken(token, username) {
     return {
         type: SAVE_TOKEN,
-        token
+        token,
+        username
     }
 }
 
@@ -52,6 +54,13 @@ function setImageList(imageList) {
     };
 }
 
+function setUserProfile(profile) {
+    return {
+        type: SET_USER_PROFILE,
+        profile
+    }
+}
+
 // API actions
 
 function facebookLogin(access_token) {
@@ -68,7 +77,7 @@ function facebookLogin(access_token) {
         .then(response => response.json())
         .then(json => {
             if (json.token) {
-                dispatch(saveToken(json.token));
+                dispatch(saveToken(json.token, json.user.username));
             }
         })
         .catch(err => console.log(err));
@@ -90,7 +99,7 @@ function usernameLogin(username, password) {
         .then(response => response.json())
         .then(json => {
             if (json.token) {
-                dispatch(saveToken(json.token));
+                dispatch(saveToken(json.token, json.user.username));
             }
         })
         .catch(err => console.log(err));
@@ -115,7 +124,7 @@ function createAccount(username, password, email, name) {
         .then(response => response.json())
         .then(json => {
             if (json.token) {
-                dispatch(saveToken(json.token))
+                dispatch(saveToken(json.token, json.user.username))
             }
         })
         .catch(err => console.log(err));
@@ -248,11 +257,30 @@ function searchImages(token, searchTerm) {
     .then(json => json);
 }
 
+function getUserProfile(username) {
+    return (dispatch, getState) => {
+        const { user: { token } } = getState();
+        fetch(`/users/${username}/`, {
+            headers: {
+                Authorization: `JWT ${token}`
+            }
+        })
+        .then(response => {
+            if (response.status === 401) {
+                dispatch(logout());
+            }
+            return response.json();
+        })
+        .then(json => dispatch(setUserProfile(json)));
+    };
+}
+
 // initial state
 
 const initialState = {
     isLoggedIn: localStorage.getItem("jwt") ? true : false,
-    token: localStorage.getItem("jwt")
+    token: localStorage.getItem("jwt"),
+    username: localStorage.getItem("username")
 };
 
 // reducer
@@ -271,6 +299,8 @@ function reducer(state = initialState, action) {
             return applyUnfollowUser(state, action);
         case SET_IMAGE_LIST:
             return applySetImageList(state, action);
+        case SET_USER_PROFILE:
+            return applySetUserProfile(state, action);
         default:
             return state;
     }
@@ -280,12 +310,15 @@ function reducer(state = initialState, action) {
 
 function applySetToken(state, action) {
     const { token } = action;
+    const { username } = action;
     localStorage.setItem("jwt", token);
+    localStorage.setItem("username", username);
 
     return {
         ...state,
         isLoggedIn: true,
-        token
+        token,
+        username
     }
 }
 
@@ -337,6 +370,14 @@ function applySetImageList(state, action) {
     }
 }
 
+function applySetUserProfile(state, action) {
+    const { profile } = action;
+    return {
+        ...state,
+        profile
+    }
+}
+
 // exports
 
 const actionCreators = {
@@ -349,6 +390,7 @@ const actionCreators = {
     unfollowUser,
     getExplore,
     searchByTerm,
+    getUserProfile,
 };
 
 export { actionCreators };
