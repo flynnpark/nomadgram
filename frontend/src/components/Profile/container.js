@@ -13,14 +13,7 @@ class Container extends Component {
 
     componentDidMount() {
         const { getUserProfile } = this.props;
-        const { profile } = this.props;
-        if(!profile) {
-            getUserProfile();
-        } else {
-            this.setState({
-                loading: false
-            });
-        }
+        getUserProfile();
     }
 
     componentWillReceiveProps = nextProps => {

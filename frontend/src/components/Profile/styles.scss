@@ -1,0 +1,101 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: $max-page-width;
+    margin: 0 auto;
+    align-items: center;
+
+    .profile-header {
+        width: 100%;
+        align-items: stretch;
+        box-sizing: border-box;
+        margin-bottom: 44px;
+
+
+        .profile-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 30px;
+            flex-basis: 0;
+            flex-grow: 1;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            flex-direction: column;
+
+            .square-image {
+                width: 152px;
+                height: 152px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .profile-detail {
+            flex-basis: 30px;
+            flex-grow: 2;
+
+            .profile-top {
+                margin-bottom: 20px;
+                align-items: center;
+
+                h1 {
+                    font-size: 32px;
+                    line-height: 40px;
+                    font-weight: 200;
+                }
+            }
+
+            .profile-middle {
+                display: flex;
+                margin-bottom: 20px;
+
+                .counter-list {
+                    font-size: 16px;
+                    margin-right: 40px;
+
+                    .counter-subject {
+                        color: inherit;
+
+                        .counter {
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+
+            .profile-bottom {
+                font-size: 16px;
+                line-height: 24px;
+                word-wrap: break-word;
+                display: block;
+
+                h1 {
+                    display: inline;
+                    font-weight: 600;
+                }
+
+                a {
+                    color: #003569;
+                    text-decoration: none;
+                }
+
+                .website {
+                    font-weight: 600;
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    .photo-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
