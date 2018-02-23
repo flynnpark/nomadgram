@@ -166,11 +166,12 @@ class Search(APIView):
             hashtags = hashtags.split(",")
             images = models.Image.objects.filter(tags__name__in=hashtags).distinct()
             serializer = serializers.CountImageSerializer(images, many=True)
-
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
         else:
-            return Response(status=HTTP_400_BAD_REQUEST)
+            images = models.Images.objects.all()[:20]
+            serializer = serializers.CommentSerializer(images, many=True)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
 class ModerateComment(APIView):
