@@ -159,7 +159,6 @@ class Comment(APIView):
 class Search(APIView):
 
     def get(self, request, format=None):
-
         hashtags = request.query_params.get('hashtags', None)
 
         if hashtags is not None:
@@ -169,8 +168,8 @@ class Search(APIView):
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
         else:
-            images = models.Images.objects.all()[:20]
-            serializer = serializers.CommentSerializer(images, many=True)
+            images = models.Image.objects.all()[:20]
+            serializer = serializers.CountImageSerializer(images, many=True)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
