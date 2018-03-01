@@ -1,13 +1,13 @@
 // imports
 
-import { actionCreators as userActions } from "redux/modules/user";
+import { actionCreators as userActions } from 'redux/modules/user';
 
 // actions
 
-const SET_FEED = "SET_FEED";
-const LIKE_PHOTO = "LIKE_PHOTO";
-const UNLIKE_PHOTO = "UNLIKE_PHOTO";
-const ADD_COMMENT = "ADD_COMMENT";
+const SET_FEED = 'SET_FEED';
+const LIKE_PHOTO = 'LIKE_PHOTO';
+const UNLIKE_PHOTO = 'UNLIKE_PHOTO';
+const ADD_COMMENT = 'ADD_COMMENT';
 
 // actionCreators
 
@@ -34,9 +34,9 @@ function doUnlikePhoto(photoId) {
 
 function addComment(photoId, comment) {
     return {
-      type: ADD_COMMENT,
-      photoId,
-      comment
+        type: ADD_COMMENT,
+        photoId,
+        comment
     };
 }
 
@@ -45,87 +45,85 @@ function addComment(photoId, comment) {
 function getFeed() {
     return (dispatch, getState) => {
         const { user: { token } } = getState();
-        fetch("http://192.168.0.10:8000/images/", {
+        fetch('/images/', {
             headers: {
                 Authorization: `JWT ${token}`
             }
         })
-        .then(response => {
-            if (response.status === 401) {
-                dispatch(userActions.logout());
-            }
+            .then(response => {
+                if (response.status === 401) {
+                    dispatch(userActions.logout());
+                }
 
-            return response.json();
-        })
-        .then(json => dispatch(setFeed(json)));
+                return response.json();
+            })
+            .then(json => dispatch(setFeed(json)));
     };
 }
 
 function likePhoto(photoId) {
     return (dispatch, getState) => {
-        dispatch(doLikePhoto(photoId))
+        dispatch(doLikePhoto(photoId));
         const { user: { token } } = getState();
         fetch(`/images/${photoId}/likes/`, {
-            method: "POST",
+            method: 'POST',
             headers: {
                 Authorization: `JWT ${token}`
             }
-        })
-        .then(response => {
+        }).then(response => {
             if (response.status === 401) {
                 dispatch(userActions.logout());
             } else if (!response.ok) {
                 dispatch(doUnlikePhoto(photoId));
             }
         });
-    }
+    };
 }
 
 function unlikePhoto(photoId) {
     return (dispatch, getState) => {
-        dispatch(doUnlikePhoto(photoId))
+        dispatch(doUnlikePhoto(photoId));
         const { user: { token } } = getState();
         fetch(`/images/${photoId}/unlikes/`, {
-            method: "DELETE",
+            method: 'DELETE',
             headers: {
                 Authorization: `JWT ${token}`
             }
-        })
-        .then(response => {
+        }).then(response => {
             if (response.status === 401) {
                 dispatch(userActions.logout());
             } else if (!response.ok) {
                 dispatch(doLikePhoto(photoId));
             }
         });
-    }
+    };
 }
 
 function commentPhoto(photoId, message) {
     return (dispatch, getState) => {
         const { user: { token } } = getState();
         fetch(`/images/${photoId}/comments/`, {
-            method: "POST",
+            method: 'POST',
             headers: {
                 Authorization: `JWT ${token}`,
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 message
             })
         })
-        .then(response => {
-            if (response.status === 401) {
-                dispatch(userActions.logout());
-            }
-            return response.json()
-        })
-        .then(json => {
-            if (json.message) {
-                dispatch(addComment(photoId, json));
-            }
-        });
-    }
+            .then(response => {
+                if (response.status === 401) {
+                    dispatch(userActions.logout());
+                }
+                return response.json();
+            })
+            .then(json => {
+                if (json.message) {
+                    dispatch(addComment(photoId, json));
+                }
+            });
+    };
 }
 
 // initial state
@@ -215,7 +213,7 @@ const actionCreators = {
     getFeed,
     likePhoto,
     unlikePhoto,
-    commentPhoto,
+    commentPhoto
 };
 
 export { actionCreators };
