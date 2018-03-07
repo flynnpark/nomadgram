@@ -41,6 +41,12 @@ class FeedUserSerializer(serializers.ModelSerializer):
         fields = (
             'username',
             'profile_image',
+            'name',
+            'bio',
+            'website',
+            'post_count',
+            'followers_count',
+            'following_count'
         )
 
 
@@ -95,10 +101,13 @@ class ImageSerializer(TaggitSerializer, serializers.ModelSerializer):
 
 class InputImageSerializer(serializers.ModelSerializer):
 
+    tags = TagListSerializerField()
+
     class Meta:
         model = models.Image
         fields = (
             'file',
             'location',
             'caption',
+            'tags'
         )
