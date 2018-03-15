@@ -32,7 +32,6 @@ class Images(APIView):
 
         return Response(serializer.data)
 
-
     def post(self, request, format=None):
 
         user = request.user
@@ -41,7 +40,7 @@ class Images(APIView):
         if serializer.is_valid():
             serializer.save(creator=user)
 
-            return Response(data=serializer.data, status=HTTP_201_CREATED)
+            return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
         else:
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)

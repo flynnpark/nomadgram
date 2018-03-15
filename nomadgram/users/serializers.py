@@ -5,6 +5,7 @@ from allauth.account.utils import setup_user_email
 from . import models
 from nomadgram.images import serializers as images_serializers
 
+
 class UserProfileSerializer(serializers.ModelSerializer):
 
     images = images_serializers.ImageSerializer(many=True, read_only=True)
@@ -37,7 +38,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             if user.id == request.user.id:
                 return True
             else:
-                 return False
+                return False
         return False
 
     def get_is_following(self, obj):
