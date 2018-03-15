@@ -4,6 +4,7 @@ from io import BytesIO
 from urllib.request import urlopen
 from django.core.files import File
 
+
 @receiver(user_signed_up)
 def user_signed_up(request, user, **kwargs):
     if len(user.socialaccount_set.all()) > 0:

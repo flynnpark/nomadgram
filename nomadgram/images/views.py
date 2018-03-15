@@ -6,10 +6,10 @@ from nomadgram.users import models as user_models
 from nomadgram.users import serializers as user_serializers
 from nomadgram.notifications import views as notification_views
 
+
 class Images(APIView):
 
     def get(self, request, format=None):
-
         user = request.user
         following_users = user.following.all()
 
@@ -27,8 +27,7 @@ class Images(APIView):
             image_list.append(image)
 
         sorted_list = sorted(image_list, key=lambda image: image.created_at, reverse=True)
-
-        serializer = serializers.ImageSerializer(sorted_list, many=True, context={'request': request})
+        serializer = serializers.ImageSerializer(sorted_list, many=True)
 
         return Response(serializer.data)
 
@@ -54,8 +53,7 @@ class LikeImage(APIView):
         like_creator_ids = likes.values('creator_id')
         users = user_models.User.objects.filter(id__in=like_creator_ids)
 
-        serializer = user_serializers.ListUserSerializer(users, many=True, context={"request": request})
-
+        serializer = user_serializers.ListUserSerializer(users, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, image_id, format=None):
@@ -72,7 +70,6 @@ class LikeImage(APIView):
                 creator=user,
                 image=found_image,
             )
-
             return Response(status=status.HTTP_304_NOT_MODIFIED)
 
         except models.Like.DoesNotExist:
@@ -81,10 +78,8 @@ class LikeImage(APIView):
                 image=found_image,
             )
             new_like.save()
-
             # 좋아요 누를 경우 Notification 생성
             notification_views.create_notification(user, found_image.creator, 'like', found_image)
-
             return Response(status=status.HTTP_201_CREATED)
 
 
@@ -104,13 +99,10 @@ class UnLikeImage(APIView):
                 creator=user,
                 image=found_image,
             )
-
             preexisting_like.delete()
-
             return Response(status=status.HTTP_204_NO_CONTENT)
 
         except models.Like.DoesNotExist:
-
             return Response(status=status.HTTP_304_NOT_MODIFIED)
 
 
@@ -131,7 +123,9 @@ class CommentOnImage(APIView):
         if serializer.is_valid():
             serializer.save(creator=user, image=found_image)
             # 댓글 작성시 Notification 생성
-            notification_views.create_notification(user, found_image.creator, 'comment', found_image, serializer.data['message'])
+            notification_views.create_notification(
+                user, found_image.creator, 'comment', found_image, serializer.data['message']
+            )
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
         else:
@@ -162,13 +156,13 @@ class Search(APIView):
             hashtags = hashtags.split(",")
             images = models.Image.objects.filter(tags__name__in=hashtags).distinct()
             serializer = serializers.CountImageSerializer(
-                images, many=True, context={'request': request})
+                images, many=True)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
         else:
             images = models.Image.objects.all()[:20]
             serializer = serializers.CountImageSerializer(
-                images, many=True, context={'request': request})
+                images, many=True)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
@@ -195,9 +189,9 @@ class ImageDetail(APIView):
         try:
             image = models.Image.objects.get(id=image_id, creator=user)
             return image
+
         except models.Image.DoesNotExist:
             return None
-
 
     def get(self, request, image_id, format=None):
 
@@ -210,15 +204,12 @@ class ImageDetail(APIView):
         except models.Image.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = serializers.ImageSerializer(image, context={'request': request})
-
+        serializer = serializers.ImageSerializer(image)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
-
 
     def put(self, request, image_id, format=None):
 
         user = request.user
-
         image = self.find_own_image(image_id, user)
 
         if image is None:
@@ -228,22 +219,18 @@ class ImageDetail(APIView):
 
         if serializer.is_valid():
             serializer.save(creator=user)
-
             return Response(data=serializer.data, status=status.HTTP_204_NO_CONTENT)
 
         else:
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
     def delete(self, request, image_id, format=None):
 
         user = request.user
-
         image = self.find_own_image(image_id, user)
 
         if image is None:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
         image.delete()
-
         return Response(status=status.HTTP_204_NO_CONTENT)

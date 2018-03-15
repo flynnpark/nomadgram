@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Profile from "./presenter";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Profile from './presenter';
 
 class Container extends Component {
     state = {
@@ -26,9 +26,8 @@ class Container extends Component {
 
     render() {
         const { profile } = this.props;
-        console.log(profile);
         return <Profile {...this.state} profile={profile} />;
-    };
+    }
 }
 
 export default Container;
