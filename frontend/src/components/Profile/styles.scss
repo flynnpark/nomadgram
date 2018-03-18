@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
   max-width: $max-page-width;
-  margin: 0 auto;
+  margin: 0 20px;
   align-items: center;
 
   .profile-header {
@@ -101,7 +101,22 @@
 
   .photo-list {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
+
+    .row {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      margin-bottom: 28px;
+
+      > div {
+        margin-right: 28px;
+      }
+
+      > div:last-child {
+        margin-right: 0px;
+      }
+    }
   }
 }

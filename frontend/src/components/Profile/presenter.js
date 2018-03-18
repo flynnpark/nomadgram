@@ -22,12 +22,21 @@ const RenderProfile = props => (
     <div className={styles.profile}>
         <ProfileDetail {...props.profile} />
         <div className={styles.photoList}>
-            {props.profile.images.map(photo => (
-                <PhotoDisplay photo={photo} key={photo.id} />
-            ))}
+            <RenderPhotoDisplay images={props.profile.images} />
         </div>
     </div>
 );
+
+const RenderPhotoDisplay = props => {
+    let slicedImage = [];
+    while (props.images.length) slicedImage.push(props.images.splice(0, 3));
+
+    return slicedImage.map(row => (
+        <div className={styles.row}>
+            {row.map(photo => <PhotoDisplay key={photo.id} photo={photo} />)}
+        </div>
+    ));
+};
 
 const ProfileDetail = props => (
     <header className={styles.profileHeader}>
