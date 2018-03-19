@@ -1,18 +1,18 @@
-import { connect } from "react-redux";
-import Container from "./presenter";
-import { actionCreators as userActions } from "redux/modules/user";
+import { connect } from 'react-redux';
+import Container from './presenter';
+import { actionCreators as userActions } from 'redux/modules/user';
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     const { user } = ownProps;
     return {
         handleClick: () => {
-            if (user.following) {
+            if (user.is_following) {
                 dispatch(userActions.unfollowUser(user.id));
             } else {
                 dispatch(userActions.followUser(user.id));
             }
         }
     };
-}
+};
 
 export default connect(null, mapDispatchToProps)(Container);

@@ -1,6 +1,8 @@
-import React from "react";
-import UserDisplay from "./presenter";
+import React from 'react';
+import UserDisplay from './presenter';
 
-const Container = props => <UserDisplay {...props} />
+const Container = props => {
+    return <UserDisplay {...props} />;
+};
 
 export default Container;

@@ -54,7 +54,6 @@ function getFeed() {
                 if (response.status === 401) {
                     dispatch(userActions.logout());
                 }
-
                 return response.json();
             })
             .then(json => dispatch(setFeed(json)));

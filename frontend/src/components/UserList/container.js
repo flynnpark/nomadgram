@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import UserList from "./presenter";
+import React, { Component } from 'react';
+import UserList from './presenter';
 
 class Container extends Component {
     state = {
@@ -9,7 +9,7 @@ class Container extends Component {
     componentDidMount() {
         const { userList } = this.props;
         if (userList) {
-            this.setState({ loading: false});
+            this.setState({ loading: false });
         }
     }
 

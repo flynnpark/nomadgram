@@ -1,95 +1,99 @@
 .horizontal,
 .vertical {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid $light-grey;
+
+  .column {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 16px;
-    width: 100%;
-    box-sizing: border-box;
-    border-bottom: 1px solid $light-grey;
 
-    .column {
-        display: flex;
-        align-items: center;
+    .user {
+      margin-left: 10px;
 
-        .user {
-            margin-left: 10px;
+      .username {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 3px;
+      }
 
-            .username {
-                font-weight: 600;
-                display: block;
-                margin-bottom: 3px;
-            }
-
-            .name {
-                color: $dark-grey;
-            }
-        }
-
-        .bigAvatar {
-            width: 55px;
-            height: 55px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            border-radius: 50%;
-        }
-
-        .avatar {
-            width: 30px;
-            height: 30px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            border-radius: 50%;
-        }
-
-        .button {
-            @include blueButton();
-        }
+      .name {
+        color: $dark-grey;
+      }
     }
+
+    .bigAvatar {
+      width: 55px;
+      height: 55px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      border-radius: 50%;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      border-radius: 50%;
+    }
+
+    .following {
+      @include whiteButton();
+    }
+
+    .follow {
+      @include blueButton();
+    }
+  }
 }
 
 .horizontal {
-    &:last-child {
-        border: 0;
-    }
+  &:last-child {
+    border: 0;
+  }
 }
 
 .vertical {
+  flex-direction: column;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+
+  @include boxBorder(yes);
+
+  .column {
     flex-direction: column;
-    width: 30%;
-    justify-content: center;
-    align-items: center;
-    height: 220px;
 
-    @include boxBorder(yes);
-
-    .column {
-        flex-direction: column;
-
-        .avatar {
-            width: 78px;
-            height: 78px;
-            background-size: over;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-
-        .user {
-            text-align: center;
-            margin: 0;
-
-            .username {
-                margin-bottom: 7px;
-            }
-        }
+    .avatar {
+      width: 78px;
+      height: 78px;
+      background-size: over;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      border-radius: 50%;
+      margin-bottom: 20px;
     }
 
-    .button {
-        margin-top: 15px;
-        min-width: 95px;
+    .user {
+      text-align: center;
+      margin: 0;
+
+      .username {
+        margin-bottom: 7px;
+      }
     }
+  }
+
+  .button {
+    margin-top: 15px;
+    min-width: 95px;
+  }
 }

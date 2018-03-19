@@ -19,10 +19,12 @@ const LoadingProfile = props => (
 );
 
 const RenderProfile = props => (
-    <div className={styles.profile}>
-        <ProfileDetail {...props.profile} />
-        <div className={styles.photoList}>
-            <RenderPhotoDisplay images={props.profile.images} />
+    <div className={styles.container}>
+        <div className={styles.profile}>
+            <ProfileDetail {...props.profile} />
+            <div className={styles.photoList}>
+                <RenderPhotoDisplay images={props.profile.images} />
+            </div>
         </div>
     </div>
 );
@@ -38,7 +40,7 @@ const RenderPhotoDisplay = props => {
     ));
 };
 
-const ProfileDetail = props => (
+const ProfileDetail = (props, context) => (
     <header className={styles.profileHeader}>
         <div className={styles.profileImage}>
             <div
@@ -52,6 +54,21 @@ const ProfileDetail = props => (
         <section className={styles.profileDetail}>
             <div className={styles.profileTop}>
                 <h1>{props.username}</h1>
+                <span className={styles.buttonContainer}>
+                    {!props.is_self && (
+                        <button
+                            className={
+                                props.is_following
+                                    ? styles.following
+                                    : styles.follow
+                            }
+                        >
+                            {props.is_following
+                                ? context.t('Following')
+                                : context.t('Follow')}
+                        </button>
+                    )}
+                </span>
             </div>
             <ul className={styles.profileMiddle}>
                 <li className={styles.counterList}>
@@ -89,7 +106,11 @@ const ProfileDetail = props => (
     </header>
 );
 
-Profile.propTypes = {
+ProfileDetail.contextTypes = {
+    t: PropTypes.func.isRequired
+};
+
+ProfileDetail.propTypes = {
     loading: PropTypes.bool.isRequired,
     profile: PropTypes.shape({
         bio: PropTypes.string,

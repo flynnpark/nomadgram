@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./styles.scss";
-import Ionicon from "react-ionicons";
-import Loading from "components/Loading";
-import UserDisplay from "components/UserDisplay";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './styles.scss';
+import Ionicon from 'react-ionicons';
+import Loading from 'components/Loading';
+import UserDisplay from 'components/UserDisplay';
 
 const UserList = props => (
     <div className={styles.container}>
@@ -15,13 +15,20 @@ const UserList = props => (
                 </span>
             </header>
             <div className={styles.content}>
-                {props.loading ? <Loading /> : <RenderUsers list={props.userList} />}
+                {props.loading ? (
+                    <Loading />
+                ) : (
+                    <RenderUsers list={props.userList} />
+                )}
             </div>
         </div>
     </div>
 );
 
-const RenderUsers = props => props.list.map(user => <UserDisplay horizontal={true} user={user} key={user.id} />);
+const RenderUsers = props =>
+    props.list.map(user => (
+        <UserDisplay horizontal={true} user={user} key={user.id} />
+    ));
 
 RenderUsers.propTypes = {
     list: PropTypes.array
