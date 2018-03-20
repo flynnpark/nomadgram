@@ -33,7 +33,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
         )
 
     def get_is_self(self, user):
-        print(self.context['request'])
         if 'request' in self.context:
             request = self.context['request']
             if user.id == request.user.id:
@@ -72,11 +71,8 @@ class ListUserSerializer(serializers.ModelSerializer):
         )
 
     def get_is_self(self, user):
-        # print(request.user.id)
         if 'request' in self.context:
             request = self.context['request']
-            print(user.id)
-            print(request.user.id)
             if user.id == request.user.id:
                 return True
             else:

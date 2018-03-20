@@ -6,17 +6,11 @@ import PhotoDisplay from 'components/PhotoDisplay';
 
 const Profile = props => {
     if (props.loading) {
-        return <LoadingProfile />;
+        return <Loading />;
     } else if (props.profile) {
         return <RenderProfile {...props} />;
     }
 };
-
-const LoadingProfile = props => (
-    <div className={styles.profile}>
-        <Loading />
-    </div>
-);
 
 const RenderProfile = props => (
     <div className={styles.container}>
@@ -33,8 +27,8 @@ const RenderPhotoDisplay = props => {
     let slicedImage = [];
     while (props.images.length) slicedImage.push(props.images.splice(0, 3));
 
-    return slicedImage.map(row => (
-        <div className={styles.row}>
+    return slicedImage.map((row, index) => (
+        <div key={index} className={styles.row}>
             {row.map(photo => <PhotoDisplay key={photo.id} photo={photo} />)}
         </div>
     ));
@@ -111,7 +105,6 @@ ProfileDetail.contextTypes = {
 };
 
 ProfileDetail.propTypes = {
-    loading: PropTypes.bool.isRequired,
     profile: PropTypes.shape({
         bio: PropTypes.string,
         followers_count: PropTypes.number.isRequired,
@@ -127,7 +120,9 @@ ProfileDetail.propTypes = {
         post_count: PropTypes.number.isRequired,
         profile_image: PropTypes.string.isRequired,
         username: PropTypes.string.isRequired,
-        website: PropTypes.string
+        website: PropTypes.string,
+        is_self: PropTypes.bool.isRequired,
+        is_following: PropTypes.bool.isRequired
     })
 };
 
