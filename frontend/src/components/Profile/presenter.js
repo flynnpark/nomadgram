@@ -15,7 +15,11 @@ const Profile = props => {
 const RenderProfile = props => (
     <div className={styles.container}>
         <div className={styles.profile}>
-            <ProfileDetail {...props.profile} />
+            <ProfileDetail
+                followUser={props.followUser}
+                unfollowUser={props.unfollowUser}
+                {...props.profile}
+            />
             <div className={styles.photoList}>
                 <RenderPhotoDisplay images={props.profile.images} />
             </div>

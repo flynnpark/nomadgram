@@ -12,17 +12,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     const { match: { params: { username } } } = ownProps;
-    const { profile } = ownProps;
     return {
         getUserProfile: () => {
             dispatch(userActions.getUserProfile(username));
-        },
-        handleFollow: () => {
-            if (profile.is_following) {
-                dispatch(userActions.unfollowUser(profile.id));
-            } else {
-                dispatch(userActions.followUser(profile.id));
-            }
         }
     };
 };
