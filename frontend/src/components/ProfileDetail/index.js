@@ -3,13 +3,13 @@ import Container from './container';
 import { actionCreators as userActions } from 'redux/modules/user';
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    const { user } = ownProps;
+    const { is_following, username } = ownProps;
     return {
-        handleClick: () => {
-            if (user.is_following) {
-                dispatch(userActions.unfollowUser(user.id));
+        handleFollow: () => {
+            if (is_following) {
+                dispatch(userActions.unfollowUser(username));
             } else {
-                dispatch(userActions.followUser(user.id));
+                dispatch(userActions.followUser(username));
             }
         }
     };

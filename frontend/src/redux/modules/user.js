@@ -388,6 +388,7 @@ function applySetImageList(state, action) {
 
 function applySetUserProfile(state, action) {
     const { profile } = action;
+    const { userList } = state;
     return {
         ...state,
         profile
