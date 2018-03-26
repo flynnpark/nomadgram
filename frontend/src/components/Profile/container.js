@@ -3,31 +3,31 @@ import PropTypes from 'prop-types';
 import Profile from './presenter';
 
 class Container extends Component {
-    state = {
-        loading: true
-    };
+  state = {
+    loading: true
+  };
 
-    static propTypes = {
-        getUserProfile: PropTypes.func.isRequired
-    };
+  static propTypes = {
+    getUserProfile: PropTypes.func.isRequired
+  };
 
-    componentDidMount() {
-        const { getUserProfile } = this.props;
-        getUserProfile();
+  componentDidMount() {
+    const { getUserProfile } = this.props;
+    getUserProfile();
+  }
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.profile) {
+      this.setState({
+        loading: false
+      });
     }
+  };
 
-    componentWillReceiveProps = nextProps => {
-        if (nextProps.profile) {
-            this.setState({
-                loading: false
-            });
-        }
-    };
-
-    render() {
-        const { profile } = this.props;
-        return <Profile {...this.state} profile={profile} />;
-    }
+  render() {
+    const { profile } = this.props;
+    return <Profile {...this.state} profile={profile} />;
+  }
 }
 
 export default Container;

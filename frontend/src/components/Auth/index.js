@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import Container from "./container";
+import { connect } from 'react-redux';
+import Container from './container';
 
 // Add all the actions for :
 // Log in

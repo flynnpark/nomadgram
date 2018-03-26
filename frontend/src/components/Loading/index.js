@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "./styles.scss";
+import React from 'react';
+import styles from './styles.scss';
 
 const Loading = props => (
-    <div className={styles.container}>
-        <div className={styles.loadingBounce}>
-            <div className={styles.bounce1}></div>
-            <div className={styles.bounce2}></div>
-            <div className={styles.bounce3}></div>
-        </div>
+  <div className={styles.container}>
+    <div className={styles.loadingBounce}>
+      <div className={styles.bounce1} />
+      <div className={styles.bounce2} />
+      <div className={styles.bounce3} />
     </div>
+  </div>
 );
 
 export default Loading;

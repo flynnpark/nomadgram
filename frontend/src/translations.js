@@ -1,31 +1,30 @@
 export const translations = {
-  'kr': {
-    'Don\'t have an account?': '계정이 없으신가요?',
+  kr: {
+    "Don't have an account?": '계정이 없으신가요?',
     'Sign up': '회원가입',
     'Have an account?': '계정이 있으신가요?',
     'Log in': '로그인',
     'Get the app': '앱을 사용해보세요',
-    'Username': '계정명',
-    'Password': '비밀번호',
-    'or': '',
+    Username: '계정명',
+    Password: '비밀번호',
+    or: '',
     'Log in with Facebook': '',
     'Forgot password?': '',
     'Sign up to see photos and videos from your friends.': '',
-    'Email': '',
+    Email: '',
     'Full Name': '',
     'By signing up, you agree to our': '',
     'Terms & Privacy Policy': '',
     'About Us': '',
-    'Support': '',
-    'Blog': '',
-    'Press': '',
-    'API': '',
-    'Jobs': '',
-    'Privacy': '',
-    'Terms': '',
-    'Directory': '',
-    'Language': '',
+    Support: '',
+    Blog: '',
+    Press: '',
+    API: '',
+    Jobs: '',
+    Privacy: '',
+    Terms: '',
+    Directory: '',
+    Language: ''
   },
-  'options': {
-  },
-}
+  options: {}
+};
