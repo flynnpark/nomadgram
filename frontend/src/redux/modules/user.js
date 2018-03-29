@@ -289,7 +289,10 @@ function getNotifications() {
         }
         return response.json();
       })
-      .then(json => json);
+      .then(json => {
+        console.log(json);
+        return json;
+      });
   };
 }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IonIcon from 'react-ionicons';
 import { Link } from 'react-router-dom';
 import styles from './styles.scss';
 
@@ -26,15 +25,15 @@ const Navigation = (props, context) => (
       <div className={styles.column}>
         <div className={styles.navIcon}>
           <Link to="/explore">
-            <IonIcon icon="ios-compass-outline" fontSize="28px" color="black" />
+            <div className={styles.explore} />
           </Link>
         </div>
         <div className={styles.navIcon}>
-          <IonIcon icon="ios-heart-outline" fontSize="28px" color="black" />
+          <div className={styles.notification} />
         </div>
         <div className={styles.navIcon}>
           <Link to={{ pathname: `/${props.username}` }}>
-            <IonIcon icon="ios-person-outline" fontSize="28px" color="black" />
+            <div className={styles.profile} />
           </Link>
         </div>
       </div>

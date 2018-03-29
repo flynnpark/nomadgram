@@ -66,6 +66,36 @@
       .nav-icon {
         margin-left: 30px;
         cursor: pointer;
+
+        .explore {
+          background-image: url('images/bundle.png');
+          background-repeat: no-repeat;
+          background-position: -397px -256px;
+          background-size: 439px 407px;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+        }
+
+        .notification {
+          background-image: url('images/bundle.png');
+          background-repeat: no-repeat;
+          background-position: -77px -360px;
+          background-size: 439px 407px;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+        }
+
+        .profile {
+          background-image: url('images/bundle.png');
+          background-repeat: no-repeat;
+          background-position: -398px 0px;
+          background-size: 439px 407px;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+        }
       }
     }
   }
