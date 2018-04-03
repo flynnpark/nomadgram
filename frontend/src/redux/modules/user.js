@@ -424,7 +424,8 @@ const actionCreators = {
   unfollowUser,
   getExplore,
   searchByTerm,
-  getUserProfile
+  getUserProfile,
+  getNotifications
 };
 
 export { actionCreators };
