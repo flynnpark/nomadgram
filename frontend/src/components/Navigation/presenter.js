@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './styles.scss';
-import Notification from 'components/Notification';
+import NotificationContainer from 'components/NotificationContainer';
 
 const Navigation = (props, context) => (
   <div className={styles.navigation}>
@@ -34,7 +34,7 @@ const Navigation = (props, context) => (
             className={styles.notification}
             onClick={props.openNotifications}
           />
-          {props.seeingNotifications && <Notification />}
+          {props.seeingNotifications && <NotificationContainer />}
         </div>
         <div className={styles.navIcon}>
           <Link to={{ pathname: `/${props.username}` }}>
