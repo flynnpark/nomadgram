@@ -12,9 +12,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     goToSearch: searchTerm => {
       dispatch(push(`/search/${searchTerm}`));
-    },
-    getNotifications: () => {
-      dispatch(userActions.getNotifications());
     }
   };
 };

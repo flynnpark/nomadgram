@@ -150,7 +150,6 @@ function reducer(state = initialState, action) {
 
 function applySetFeed(state, action) {
   const { feed } = action;
-
   return {
     ...state,
     feed
@@ -170,7 +169,6 @@ function applyLikePhoto(state, action) {
     }
     return photo;
   });
-
   return { ...state, feed: updatedFeed };
 }
 
@@ -202,7 +200,6 @@ function applyAddComment(state, action) {
     }
     return photo;
   });
-
   return { ...state, feed: updatedFeed };
 }
 

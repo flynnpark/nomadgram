@@ -9,8 +9,7 @@ class Container extends Component {
   };
 
   static propTypes = {
-    goToSearch: PropTypes.func.isRequired,
-    getNotifications: PropTypes.func.isRequired
+    goToSearch: PropTypes.func.isRequired
   };
 
   render() {
@@ -44,13 +43,9 @@ class Container extends Component {
   };
 
   _openNotifications = () => {
-    const { getNotifications, notifications } = this.props;
     this.setState({
       seeingNotifications: true
     });
-    if (!notifications) {
-      getNotifications();
-    }
   };
 }
 

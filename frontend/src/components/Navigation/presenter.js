@@ -34,7 +34,9 @@ const Navigation = (props, context) => (
             className={styles.notification}
             onClick={props.openNotifications}
           />
-          {props.seeingNotifications && <NotificationContainer />}
+          {props.seeingNotifications && (
+            <NotificationContainer {...this.props} />
+          )}
         </div>
         <div className={styles.navIcon}>
           <Link to={{ pathname: `/${props.username}` }}>

@@ -9,6 +9,7 @@ const FOLLOW_USER = 'FOLLOW_USER';
 const UNFOLLOW_USER = 'UNFOLLOW_USER';
 const SET_IMAGE_LIST = 'SET_IMAGE_LIST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_NOTIFICATIONS = 'SET_NOTIFICATIONS';
 
 // action creators
 
@@ -58,6 +59,13 @@ function setUserProfile(profile) {
   return {
     type: SET_USER_PROFILE,
     profile
+  };
+}
+
+function setNotifications(notifications) {
+  return {
+    type: SET_NOTIFICATIONS,
+    notifications
   };
 }
 
@@ -289,10 +297,7 @@ function getNotifications() {
         }
         return response.json();
       })
-      .then(json => {
-        console.log(json);
-        return json;
-      });
+      .then(json => dispatch(setNotifications(json)));
   };
 }
 
@@ -322,6 +327,8 @@ function reducer(state = initialState, action) {
       return applySetImageList(state, action);
     case SET_USER_PROFILE:
       return applySetUserProfile(state, action);
+    case SET_NOTIFICATIONS:
+      return applySetNotificaions(state, action);
     default:
       return state;
   }
@@ -409,6 +416,14 @@ function applySetUserProfile(state, action) {
   return {
     ...state,
     profile
+  };
+}
+
+function applySetNotificaions(state, action) {
+  const { notifications } = action;
+  return {
+    ...state,
+    notifications
   };
 }
 
