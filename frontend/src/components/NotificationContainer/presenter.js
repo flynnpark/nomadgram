@@ -6,7 +6,10 @@ import styles from './styles.scss';
 const NotificationContainer = props => {
   return (
     <div>
-      <div />
+      <div
+        className={styles.notificationBackground}
+        onClick={props.closeNotifications}
+      />
       <div className={styles.notificationContainer}>
         <ul>
           {props.loading ? (
@@ -27,7 +30,6 @@ const RenderNotifications = props => {
 };
 
 const Notification = props => {
-  console.log(props);
   return (
     <li className={styles.notificationItem}>
       <div className={styles.profileImageContainer}>
@@ -72,7 +74,8 @@ const Notification = props => {
 };
 
 NotificationContainer.propTypes = {
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  closeNotifications: PropTypes.func.isRequired
 };
 
 RenderNotifications.propTypes = {

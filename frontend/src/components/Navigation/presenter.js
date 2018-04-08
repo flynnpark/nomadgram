@@ -35,7 +35,10 @@ const Navigation = (props, context) => (
             onClick={props.openNotifications}
           />
           {props.seeingNotifications && (
-            <NotificationContainer {...this.props} />
+            <NotificationContainer
+              closeNotifications={props.closeNotifications}
+              {...this.props}
+            />
           )}
         </div>
         <div className={styles.navIcon}>
@@ -57,7 +60,8 @@ Navigation.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
-  openNotifications: PropTypes.func.isRequired
+  openNotifications: PropTypes.func.isRequired,
+  closeNotifications: PropTypes.func.isRequired
 };
 
 export default Navigation;

@@ -19,6 +19,7 @@ class Container extends Component {
         onSubmit={this._onSubmit}
         onInputChange={this._onInputChange}
         openNotifications={this._openNotifications}
+        closeNotifications={this._closeNotifications}
         value={this.state.term}
         username={this.props.username}
       />

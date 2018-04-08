@@ -33,7 +33,11 @@ class Container extends Component {
   render() {
     const { notifications } = this.props;
     return (
-      <NotificationContainer {...this.state} notifications={notifications} />
+      <NotificationContainer
+        {...this.state}
+        notifications={notifications}
+        {...this.props}
+      />
     );
   }
 }
