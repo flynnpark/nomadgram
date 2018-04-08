@@ -47,6 +47,12 @@ class Container extends Component {
       seeingNotifications: true
     });
   };
+
+  _closeNotifications = () => {
+    this.setState({
+      seeingNotifications: false
+    });
+  };
 }
 
 export default Container;

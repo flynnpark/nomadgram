@@ -30,18 +30,18 @@
       display: inline-block;
 
       .profile-image-anchor {
-        width: 34px;
-        height: 34px;
-        border-radius: 50%;
-        box-sizing: border-box;
-        flex: 0;
-        overflow: hidden;
-        cursor: pointer;
-        display: block;
-
         .profile-image {
-          width: 100%;
-          height: 100%;
+          width: 34px;
+          height: 34px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          border-radius: 50%;
+          box-sizing: border-box;
+          flex: 0;
+          overflow: hidden;
+          cursor: pointer;
+          display: block;
         }
       }
     }
@@ -60,5 +60,24 @@
     display: block;
     min-height: 26px 40px;
     flex: 0 0 auto;
+
+    .following {
+      @include whiteButton();
+    }
+
+    .follow {
+      @include blueButton();
+    }
+
+    .image-container {
+      .image {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+    }
   }
 }
