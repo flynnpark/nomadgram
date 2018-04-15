@@ -46,7 +46,7 @@ const Notification = props => {
         </div>
       </div>
       <div className={styles.notificationContent}>
-        {props.creator.username}{' '}
+        <span className={styles.username}>{props.creator.username}</span>{' '}
         {props.notification_type === 'follow' && 'started following you'}
         {props.notification_type === 'comment' && `commented: ${props.comment}`}
         {props.notification_type === 'like' && 'liked your post'}
